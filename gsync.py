@@ -26,7 +26,11 @@ if __name__ == '__main__':
         print("Getting repo's url...")
         print("Syncing repo:", repo_url)
 
-        url_segments = repo_url.split("github.com/")
+        if "github.com:" not in repo_url:
+            url_segments = repo_url.split("github.com/")
+        else:
+            url_segments = repo_url.split("github.com:")
+
         path = url_segments[1]
         user, repo = path.split("/")
 
